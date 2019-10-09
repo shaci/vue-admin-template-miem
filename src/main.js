@@ -15,6 +15,8 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+import GAuth from 'vue-google-oauth2'
+
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -30,6 +32,13 @@ if (process.env.NODE_ENV === 'production') {
 
 // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })
+
+Vue.use(GAuth, {
+  clientId: '114890608414-0lp82g5o633svhd77ge8uaek82hfk3fu.apps.googleusercontent.com',
+  scope: 'email',
+  prompt: 'select_account',
+  fetch_basic_profile: false
+})
 
 Vue.config.productionTip = false
 

@@ -24,6 +24,32 @@ const users = {
 }
 
 export default [
+  // user login OAuth
+  {
+    url: '/user/loginAuthToken',
+    type: 'post',
+    response: config => {
+      //const { username } = config.body
+
+      const { authCode } = config.body
+      const username = 'admin'
+
+      const token = tokens[username]
+
+      // mock error
+      if (!token) {
+        return {
+          code: 60204,
+          message: 'Account and password are incorrect.'
+        }
+      }
+
+      return {
+        code: 20000,
+        data: token
+      }
+    }
+  },
   // user login
   {
     url: '/user/login',

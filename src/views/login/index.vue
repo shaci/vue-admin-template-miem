@@ -1,5 +1,11 @@
 <template>
   <div class="login-container">
+    <div class="login-oauth-container">
+      <div class="title-container">
+        <h3 class="title">Login Form</h3>
+      </div>
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLoginOAuth">Login (OAuth)</el-button>
+    </div>
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
@@ -55,6 +61,8 @@
 <script>
 import { validUsername } from '@/utils/validate'
 
+import { MessageBox, Message } from 'element-ui'
+
 export default {
   name: 'Login',
   data() {
@@ -95,6 +103,34 @@ export default {
     }
   },
   methods: {
+    handleLoginOAuth() {
+      console.log('handle login OAuth')
+      this.$gAuth
+        .getAuthCode()
+        .then(authCode => {
+          //on success
+          console.log("authCode", authCode)
+          return this.$store.dispatch('user/loginAuthToken', authCode)
+        },
+        error => {
+          if (error.error != 'popup_closed_by_user') {
+            Message({
+              message: 'Connection error'/*error.error*/ || 'Error',
+              type: 'error',
+              duration: 5 * 1000
+            })
+          }
+          //on fail do something
+        }
+        )
+        .then(() => {
+          this.$router.push({ path: this.redirect || '/' })
+          this.loading = false
+        }).catch(() => {
+          this.loading = false
+        })
+
+    },
     showPwd() {
       if (this.passwordType === 'password') {
         this.passwordType = ''
@@ -176,6 +212,15 @@ $cursor: #fff;
 $bg:#2d3a4b;
 $dark_gray:#889aa4;
 $light_gray:#eee;
+
+.login-oauth-container {
+  position: relative;
+  width: 520px;
+  max-width: 100%;
+  padding: 160px 35px 0;
+  margin: 0 auto;
+  overflow: hidden;
+}
 
 .login-container {
   min-height: 100%;
