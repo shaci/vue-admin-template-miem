@@ -25,6 +25,9 @@ export default {
   &-text {
     font-size: 30px;
     line-height: 46px;
+    // font-family: Gilroy;
+    // font-weight: 800;
+    // font-style: normal;
   }
 }
 </style>
