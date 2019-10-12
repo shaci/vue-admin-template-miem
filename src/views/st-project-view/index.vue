@@ -14,16 +14,17 @@ export default {
 
 <style lang="scss" scoped>
   .project-view {
-    background-color: #ecf2fa;
+    background-color: #f5f7fa;// #ecf2fa;
     min-height: 2696px; // temp
     background-image: url('~@/assets/views/st-project-view/bg.png');
     background-repeat: no-repeat;
     background-position: center top;
+    background-size: 100%;
   }
 
   @media (min-width: 1440px) { // 1440px - ширина фона + 54px - ширина sidebar
     .project-view {
-      background-size: cover;
+      // background-size: cover;
     }
   }
 </style>
