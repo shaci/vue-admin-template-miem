@@ -56,17 +56,26 @@
       <el-col :offset="1" :span="5" :xs="5" :sm="5" :lg="5">
         <article class="project-member">
           <h2>Руководитель направления</h2>
-          <div class="project-member__photo-wrapper">
-            <div class="project-member__photo">
+          <div class="project-member__photo">
               <img src="@/assets/views/st-project-view/components/project-member/users/9/user9.jpg" />
-            </div>
           </div>
+          <p class="project-member__fio">
+            Гольцман Григорий Наумович,<br> профессор ДЭИ
+          </p>
+          <div class="project-member__decor"></div>
+          <p>
+            <b>Телефон:</b><br>
+            +7 (499) 246-1202<br>
+            +7 (495) 772-9590
+          </p>
+          <p>
+            <b>Электронная почта:</b><br> ggoltsman@hse.ru
+          </p>
+          <a href="http://google.com">Профиль на сайте ВШЭ</a>
         </article>
         <article class="project-member">
           <h2>Руководитель проекта</h2>
-          <div class="project-member__photo-wrapper">
             <div class="project-member__photo"></div>
-          </div>
         </article>
       </el-col>
     </el-row>
@@ -183,10 +192,16 @@ export default {
   }
 
   .project-member {
-    height: 423px; // temp
+    // height: 500px;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.055em;
+    font-weight: 500;
+
     background-color: #ffffff;
     margin-bottom: 30px;
     padding-top: 30px;
+    padding-bottom: 38px;
     text-align: center;
     h2 {
       margin-bottom: 20px;
@@ -198,12 +213,6 @@ export default {
       font-weight: 600;
       text-transform: uppercase;
     }
-    .project-member__photo-wrapper {
-      width: 120px;
-      height: 120px;
-      background-color:#ffffff;
-      margin: 0 auto;
-    }
 
     .project-member__photo {
       width: 106px;
@@ -211,12 +220,35 @@ export default {
       background-color: #ffffff;
       overflow: hidden;
       border-radius: 50%;
-      margin: 0 auto;
+      margin: 0 auto 19px auto;
       // для изображения
       display: flex;
       flex-direction: column;
       justify-content: center;  /* Centering y-axis */
       align-items :center; /* Centering x-axis */
+    }
+
+    .project-member__fio {
+      margin-bottom: 15.5px;
+    }
+
+    .project-member__decor {
+      height: 1px;
+      width: 60%;
+      margin: 0 auto;
+      background-color: #E4E7ED;
+      margin-bottom: 15.5px;
+    }
+    p {
+      margin-bottom: 10px;
+      b {
+        font-weight: 600;
+      }
+    }
+    a {
+      font-weight: 600;
+      color: #0486FE;
+      text-decoration: underline;
     }
   }
 
