@@ -100,8 +100,35 @@
 <script>
 import { mapGetters } from 'vuex'
 
+import PanelProjectMember from './components/PanelProjectMember'
+import PanelGeneralInformation from './components/PanelGeneralInformation'
+
+import { getProjectData } from '@/api/project'
+
 export default {
   name: 'ProjectView',
+  components: {
+    PanelProjectMember,
+    PanelGeneralInformation
+  },
+  data() {
+    return {
+      project: null,
+      listLoading: true,
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      this.listLoading = true
+      getProjectData().then(response => {
+        this.project = response.data
+        this.listLoading = false
+      })
+    }
+  }
 }
 </script>
 
