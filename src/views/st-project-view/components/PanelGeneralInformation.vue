@@ -1,33 +1,149 @@
 <template>
-  <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+  <div class="general-information">
+    <!-- <div v-for="(value, name, index) in projectData.general_info">
+      {{ index }}. {{ name }}: {{ value }}
+    </div> -->
+
+    <template v-for="(value) in projectData.general_info">
+      <template v-if="value.type == 'text'">
+        <h3>{{value.title}}</h3>
+        <p>{{value.value}}</p>
+      </template>
+      <template v-if="value.type == 'ul'">
+        <h3>{{value.title}}</h3>
+        <ul>
+          <li v-for="(livalue) in value.value">
+            {{livalue}}
+          </li>
+        </ul>
+      </template>
+      <template v-if="value.type == 'container'">
+        <h3>{{value.title}}</h3>
+        <template v-for="(value) in value.value">
+          <template v-if="value.type == 'text'">
+            <h4>{{value.title}}</h4>
+            <p>{{value.value}}</p>
+          </template>
+          <template v-if="value.type == 'ul'">
+            <h4>{{value.title}}</h4>
+            <ul>
+              <li v-for="(livalue) in value.value">
+                {{livalue}}
+              </li>
+            </ul>
+          </template>
+        </template>
+      </template>
+      <!-- <template v-if="value.text && Array.isArray(value.text)">
+        value.text is array!
+      </template>
+      <template v-else>
+        <h3>{{value.title}}</h3>
+        <p>{{value.text}}</p>
+      </template> -->
+    </template>
+
+
+    <!-- <h3>Цель проекта</h3>
+    <p>Разработать прототип квантового генератора случайных чисел на основе спонтанной эмиссии лазера, обусловленной случайными фазовыми флуктуациями</p>
+    <h3>Краткая аннотация проекта (общая информация о проекте)</h3>
+    <p>На основе фотонной интегральной схемы разработать источник случайных чисел, работающий на принципе флуктуации фазы оптического излучения лазера. Такие флуктуации обусловлены тем, что в лазерах, кроме стимулированных, проходят и спонтанные процессы. Таким образом, генерируемое оптическое поле включает спонтанные флуктуации фазы. Излучение подается на планарную оптическую схему, состоящую из трёх интерферометров Маха-Цендера. В то время как два крайних интерферометра служат перестраиваемыми делителями луча, необходимыми для настройки всей схемы, центральный несбалансированный интерферометр переводит флуктуации фазы во флуктуации интенсивности излучения. Последние регистрируются фотоприемником, который, в свою очередь, преобразует флуктуации интенсивности во флуктуации тока. Далее, значения тока оцифровываются при помощи АЦП для использования генерации случайных битов.</p>
+    <h3>Ожидаемые результаты</h3>
+    <h4>Проектные: </h4>
+    <ul>
+      <li>Прототип квантового генератора случайных чисел</li>
+    </ul>
+    <h4>Образовательные (в увязке с требованиями ОС НИУ ВШЭ):</h4>
+    <ul>
+      <li>Развитие знаний, умений и навыков, связанных с применением профессиональных инструментов.</li>
+      <li>Развитие способности применения профессиональных инструментов для решения проблем в профессиональной деятельности.</li>
+      <li>Развитие способности оценки потребности в ресурсах и планирование их использования при решении задач в профессиональной деятельности</li>
+      <li>Развитие способности работы с информацией из различных источников для решения профессиональных задач, в том числе отбора и анализа информации для решения других проектных задач</li>
+      <li>Развитие способности работать в команде, в том числе принятия командных ролей и ответственности за результаты коллективного труда</li>
+      <li>Развитие способности выполнения экспериментальных исследований объектов профессиональной деятельности в области ИКТСС по заданным методикам и обработки результатов исследований с применением современных информационных технологий и технических средств.</li>
+      <li>Развитие способности ответственно принимать решения в нестандартных ситуациях профессиональной деятельности, проявлять творческий подход и инициативу.</li>
+    </ul>
+    <h3>Карта компетенции</h3>
+    <p>
+      ИКТСС: УК-1 - СК-Б1; УК-3 - СК-Б4; УК-4 - СК-Б5; УК-5 - СК-Б6; УК-7 - СК-Б8; ПК-2 - ИК-Б1.1_5.2.НИД_7.2.(ИКТСС); ПК-7 - ИК-Б1.1_4.1_4.3_4.6.ПД8_АД (ИКТСС); ПК-18 - СЛК–Б7; ПК-23 - СЛК–Б4; ПК-24 - СЛК–Б3 ИнжЭ: СК-1 - СК-М1; СК-5 - СК-М5; СК-6 - СК-М6; ПК5, ПК6, ПК9, ПК12, ПК13, ПК18, ПК19
+    </p>
+    <h3>Ресурсное обеспечение</h3>
+    <p>
+      Необходимые ресурсы для реализации проекта (материалы, доступ к лабораториям, оборудование, внешние консультации и т.д.): Оборудование Базовой кафедры квантовой оптики и телекоммуникаций, расходные материалы
+    </p>
+    <h3>Форма и способы промежуточного контроля</h3>
+    <p>
+      Определяется проектной документацией.
+    </p>
+    <h3>Форма представления результатов</h3>
+    <p>
+      Определяется проектной документацией. На завершающей стадии проекта предусмотрена презентация результатов проекта.
+    </p> -->
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 
 export default {
-  name: 'Dashboard',
-  computed: {
-    ...mapGetters([
-      'name'
-    ])
+  name: 'PanelGeneralInformation',
+  props: {
+    projectData: {
+      type: Object,
+      // required: true
+      // type: Object,
+      // required: true
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.dashboard {
-  &-container {
-    margin: 30px;
+.general-information {
+  background-color: #ffffff;
+  border-radius: 25px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 5px;
+
+  padding-right: 40px;
+  // продублируем, вдруг захотим в отдельный компонент вынести
+  h3 {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
   }
-  &-text {
-    font-size: 30px;
-    line-height: 46px;
-    // font-family: Gilroy;
-    // font-weight: 800;
-    // font-style: normal;
+  h4 {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
   }
+  p, ul {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 500;
+    color: #303133;
+  }
+  p {
+    margin-bottom: 30px;
+  }
+  ul {
+    margin: 0;
+    padding-left: 15px;
+    list-style: none;
+    margin-bottom: 15px;
+  }
+  ul:last-of-type {
+    margin-bottom: 30px;
+  }
+  ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #4066FF; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+
 }
 </style>

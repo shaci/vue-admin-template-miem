@@ -10,10 +10,19 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   // font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  // Ivan Golubev
   font-family: Gilroy;
   font-size: 15px;
   line-height: 22px; // 1.47
   font-weight: 500; // medium?
+}
+
+// Ivan Golubev
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+p {
+  margin: 0;
 }
 
 label {

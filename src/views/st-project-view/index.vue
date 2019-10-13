@@ -94,6 +94,11 @@
         </article>
       </el-col>
     </el-row>
+    <el-row>
+      <el-col :offset="2" :span="14" :xs="14" :sm="14" :lg="14">
+        <panel-general-information :project-data="project" />
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -113,7 +118,7 @@ export default {
   },
   data() {
     return {
-      project: null,
+      project: {},
       listLoading: true,
     }
   },
@@ -126,6 +131,7 @@ export default {
       getProjectData().then(response => {
         this.project = response.data
         this.listLoading = false
+        console.log(this.project)
       })
     }
   }
@@ -134,13 +140,6 @@ export default {
 
 <style lang="scss" scoped>
   .project-view {
-    //сбросим пока здесь стили - это можно вынести в body
-    h1, h2, h3, h4, h5, h6 {
-      margin: 0;
-    }
-    p {
-      margin: 0;
-    }
     // общие стили для h1, h2, h3
     h2 {
       font-size: 19px;
