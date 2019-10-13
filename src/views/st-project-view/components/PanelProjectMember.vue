@@ -1,33 +1,111 @@
 <template>
-  <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
-  </div>
+  <article class="project-member" :class="{'project-member--consultant' : projectData.status == 'consultant'}">
+    <template v-if="projectData.status != 'consultant'">
+      <h2>{{projectData.status_text}}</h2>
+      <div class="project-member__photo">
+          <img src="@/assets/views/st-project-view/components/project-member/users/9/user9.jpg" :src="require(`@/assets/views/st-project-view/components/project-member/users/${projectData.image}`)"/>
+          <!-- https://github.com/vuejs/Discussion/issues/202#issuecomment-355938213 -->
+      </div>
+      <p class="project-member__fio">
+        {{projectData.last_name}} {{projectData.first_name}} {{projectData.middle_name}},<br> {{projectData.position}}
+      </p>
+      <div class="project-member__decor"></div>
+      <p>
+        <b>Телефон:</b><br>
+        <template v-for="(value, index) in projectData.phone">
+          {{value}}<br v-if="index != projectData.phone.length - 1">
+        </template>
+      </p>
+      <p>
+        <b>Электронная почта:</b><br>
+        <template v-for="(value, index) in projectData.email">
+          {{value}}<br v-if="index != projectData.phone.length - 1">
+        </template>
+      </p>
+      <a :href="projectData.hse_link">Профиль на сайте ВШЭ</a>
+    </template>
+    <template v-else>
+      <b>{{projectData.status_text}}</b><br>
+      <p>{{projectData.last_name}} {{projectData.first_name}} {{projectData.middle_name}}</p>
+    </template>
+  </article>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 
 export default {
-  name: 'Dashboard',
-  computed: {
-    ...mapGetters([
-      'name'
-    ])
+  name: 'PanelProjectMember',
+  props: {
+    projectData: {
+      type: Object
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.dashboard {
-  &-container {
-    margin: 30px;
+.project-member {
+  // height: 500px;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.055em;
+  font-weight: 500;
+
+  background-color: #ffffff;
+  margin-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 38px;
+  text-align: center;
+  &.project-member--consultant {
+    background-color: transparent;
+    padding: 0;
   }
-  &-text {
-    font-size: 30px;
-    line-height: 46px;
-    // font-family: Gilroy;
-    // font-weight: 800;
-    // font-style: normal;
+  h2 {
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 18px;
+    /* identical to box height */
+    letter-spacing: 0.055em;
+    color: #606266;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .project-member__photo {
+    width: 106px;
+    height: 106px;
+    background-color: #ffffff;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto 19px auto;
+    // для изображения
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Centering y-axis */
+    align-items :center; /* Centering x-axis */
+  }
+
+  .project-member__fio {
+    margin-bottom: 15.5px;
+  }
+
+  .project-member__decor {
+    height: 1px;
+    width: 60%;
+    margin: 0 auto;
+    background-color: #E4E7ED;
+    margin-bottom: 15.5px;
+  }
+  p {
+    margin-bottom: 10px;
+    b {
+      font-weight: 600;
+    }
+  }
+  a {
+    font-weight: 600;
+    color: #0486FE;
+    text-decoration: underline;
   }
 }
 </style>

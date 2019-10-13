@@ -13,7 +13,7 @@
         </h2>
       </el-col>
     </el-row>
-    <el-row>
+    <!-- <el-row>
       <el-col :offset="2" :span="14" :xs="14" :sm="14" :lg="14">
         <div class="general-information">
           <h3>Цель проекта</h3>
@@ -93,10 +93,15 @@
           <a href="http://google.com">Профиль на сайте ВШЭ</a>
         </article>
       </el-col>
-    </el-row>
+    </el-row> -->
     <el-row>
       <el-col :offset="2" :span="14" :xs="14" :sm="14" :lg="14">
         <panel-general-information :project-data="project" />
+      </el-col>
+      <el-col :offset="1" :span="5" :xs="5" :sm="5" :lg="5">
+        <template v-for="(value) in project.project_leaders">
+            <panel-project-member :project-data="value" />
+        </template>
       </el-col>
     </el-row>
   </div>

@@ -1,9 +1,5 @@
 <template>
   <div class="general-information">
-    <!-- <div v-for="(value, name, index) in projectData.general_info">
-      {{ index }}. {{ name }}: {{ value }}
-    </div> -->
-
     <template v-for="(value) in projectData.general_info">
       <template v-if="value.type == 'text'">
         <h3>{{value.title}}</h3>
@@ -34,13 +30,6 @@
           </template>
         </template>
       </template>
-      <!-- <template v-if="value.text && Array.isArray(value.text)">
-        value.text is array!
-      </template>
-      <template v-else>
-        <h3>{{value.title}}</h3>
-        <p>{{value.text}}</p>
-      </template> -->
     </template>
 
 
@@ -88,10 +77,7 @@ export default {
   name: 'PanelGeneralInformation',
   props: {
     projectData: {
-      type: Object,
-      // required: true
-      // type: Object,
-      // required: true
+      type: Object
     }
   }
 }
