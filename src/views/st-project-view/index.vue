@@ -75,7 +75,22 @@
         </article>
         <article class="project-member">
           <h2>Руководитель проекта</h2>
-            <div class="project-member__photo"></div>
+          <div class="project-member__photo">
+            <img src="@/assets/views/st-project-view/components/project-member/users/10/user10.jpg" />
+          </div>
+          <p class="project-member__fio">
+            Грачев Николай Николаевич,<br> профессор ДЭИ
+          </p>
+          <div class="project-member__decor"></div>
+          <p>
+            <b>Телефон:</b><br>
+            +7 (499) 246-1202<br>
+            +7 (495) 772-9590
+          </p>
+          <p>
+            <b>Электронная почта:</b><br> ngrachev@hse.ru
+          </p>
+          <a href="http://google.com">Профиль на сайте ВШЭ</a>
         </article>
       </el-col>
     </el-row>
