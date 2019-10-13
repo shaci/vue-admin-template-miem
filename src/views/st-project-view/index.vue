@@ -55,10 +55,18 @@
       </el-col>
       <el-col :offset="1" :span="5" :xs="5" :sm="5" :lg="5">
         <article class="project-member">
-
+          <h2>Руководитель направления</h2>
+          <div class="project-member__photo-wrapper">
+            <div class="project-member__photo">
+              <img src="@/assets/views/st-project-view/components/project-member/users/9/user9.jpg" />
+            </div>
+          </div>
         </article>
         <article class="project-member">
-
+          <h2>Руководитель проекта</h2>
+          <div class="project-member__photo-wrapper">
+            <div class="project-member__photo"></div>
+          </div>
         </article>
       </el-col>
     </el-row>
@@ -160,7 +168,7 @@ export default {
       list-style: none;
       margin-bottom: 15px;
     }
-    ul:last-child {
+    ul:last-of-type {
       margin-bottom: 30px;
     }
     ul li::before {
@@ -178,6 +186,38 @@ export default {
     height: 423px; // temp
     background-color: #ffffff;
     margin-bottom: 30px;
+    padding-top: 30px;
+    text-align: center;
+    h2 {
+      margin-bottom: 20px;
+      font-size: 15px;
+      line-height: 18px;
+      /* identical to box height */
+      letter-spacing: 0.055em;
+      color: #606266;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .project-member__photo-wrapper {
+      width: 120px;
+      height: 120px;
+      background-color:#ffffff;
+      margin: 0 auto;
+    }
+
+    .project-member__photo {
+      width: 106px;
+      height: 106px;
+      background-color: #ffffff;
+      overflow: hidden;
+      border-radius: 50%;
+      margin: 0 auto;
+      // для изображения
+      display: flex;
+      flex-direction: column;
+      justify-content: center;  /* Centering y-axis */
+      align-items :center; /* Centering x-axis */
+    }
   }
 
   @media (min-width: 1494px) { // 1440px - ширина фона + 54px - ширина sidebar
