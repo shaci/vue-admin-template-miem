@@ -111,18 +111,25 @@
         </h2>
       </el-col>
     </el-row>
-    <el-row>
+    <el-row class="project-view__job-opening">
       <el-col :offset="2" :span="20" :xs="20" :sm="20" :lg="20">
         <job-opening :project-data="project" />
+      </el-col>
+    </el-row>
+    <el-row class="project-view__members">
+      <el-col :offset="2" :span="13" :xs="13" :sm="13" :lg="13">
+        <h3>
+          Студенты, записанные в проект
+        </h3>
       </el-col>
     </el-row>
     <el-row>
       <template v-for="(value, index) in filteredMembers">
         <el-col v-if="index % 2" :span="10" :xs="10" :sm="10" :lg="10">
-          <panel-project-member :project-data="value" />
+          <panel-project-member dense-panel :project-data="value" />
         </el-col>
         <el-col v-else :offset="2" :span="10" :xs="10" :sm="10" :lg="10">
-          <panel-project-member :project-data="value" />
+          <panel-project-member dense-panel :project-data="value" />
         </el-col>
       </template>
     </el-row>
@@ -193,6 +200,7 @@ export default {
       font-size: 15px;
       line-height: 18px;
       font-weight: 600;
+      color: #303133;
     }
     background-color: #f5f7fa;// #ecf2fa;
     min-height: 2696px; // temp
@@ -228,8 +236,11 @@ export default {
         }
       }
     }
-    .project-view__description {
+    .project-view__description, .project-view__job-opening {
         margin-bottom: 45px;
+    }
+    .project-view__members {
+      margin-bottom: 20px;
     }
   }
 
