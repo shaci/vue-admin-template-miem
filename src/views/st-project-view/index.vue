@@ -94,7 +94,7 @@
         </article>
       </el-col>
     </el-row> -->
-    <el-row>
+    <el-row class="project-view__description">
       <el-col :offset="2" :span="14" :xs="14" :sm="14" :lg="14">
         <panel-general-information :project-data="project" />
       </el-col>
@@ -102,6 +102,13 @@
         <template v-for="(value) in project.project_leaders">
             <panel-project-member :project-data="value" />
         </template>
+      </el-col>
+    </el-row>
+    <el-row class="project-view__general-info project-view__general-info--inproject">
+      <el-col :offset="2" :span="13" :xs="13" :sm="13" :lg="13">
+        <h2>
+          Работа в проекте
+        </h2>
       </el-col>
     </el-row>
   </div>
@@ -184,8 +191,15 @@ export default {
         padding-bottom: 12px;
         border-bottom: 1px solid #E4E7ED;
       }
+      &.project-view__general-info--inproject {
+        h2 {
+          color: #303133;
+        }
+      }
     }
-
+    .project-view__description {
+        margin-bottom: 45px;
+    }
   }
 
   // .general-information {
