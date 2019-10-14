@@ -51,12 +51,16 @@ export default {
   letter-spacing: 0.055em;
   font-weight: 500;
 
+  border-radius: 5px;
+
   background-color: #ffffff;
   margin-bottom: 30px;
   padding-top: 30px;
   padding-bottom: 38px;
   text-align: center;
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
   &.project-member--consultant {
+    box-shadow: none;
     background-color: transparent;
     padding: 0;
   }

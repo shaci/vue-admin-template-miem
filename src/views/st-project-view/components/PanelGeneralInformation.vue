@@ -92,6 +92,7 @@ export default {
   padding-bottom: 5px;
 
   padding-right: 40px;
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
   // продублируем, вдруг захотим в отдельный компонент вынести
   h3 {
     font-size: 15px;
