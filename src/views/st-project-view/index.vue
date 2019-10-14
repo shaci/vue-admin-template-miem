@@ -158,7 +158,7 @@ export default {
     }
     background-color: #f5f7fa;// #ecf2fa;
     min-height: 2696px; // temp
-    background-image: url('~@/assets/views/st-project-view/bg.png');
+    background-image: url('~@/assets/views_images/st-project-view/bg.png');
     background-repeat: no-repeat;
     background-position: center top;
     // background-size: 100%;
@@ -188,115 +188,115 @@ export default {
 
   }
 
-  .general-information {
-    background-color: #ffffff;
-    border-radius: 25px;
-    padding-left: 30px;
-    padding-top: 30px;
-    padding-bottom: 5px;
+  // .general-information {
+  //   background-color: #ffffff;
+  //   border-radius: 25px;
+  //   padding-left: 30px;
+  //   padding-top: 30px;
+  //   padding-bottom: 5px;
+  //
+  //   padding-right: 40px;
+  //   // продублируем, вдруг захотим в отдельный компонент вынести
+  //   h3 {
+  //     font-size: 15px;
+  //     line-height: 18px;
+  //     font-weight: 600;
+  //     margin-bottom: 10px;
+  //   }
+  //   h4 {
+  //     font-size: 15px;
+  //     line-height: 22px;
+  //     font-weight: 600;
+  //   }
+  //   p, ul {
+  //     font-size: 15px;
+  //     line-height: 22px;
+  //     font-weight: 500;
+  //     color: #303133;
+  //   }
+  //   p {
+  //     margin-bottom: 30px;
+  //   }
+  //   ul {
+  //     margin: 0;
+  //     padding-left: 15px;
+  //     list-style: none;
+  //     margin-bottom: 15px;
+  //   }
+  //   ul:last-of-type {
+  //     margin-bottom: 30px;
+  //   }
+  //   ul li::before {
+  //     content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  //     color: #4066FF; /* Change the color */
+  //     font-weight: bold; /* If you want it to be bold */
+  //     display: inline-block; /* Needed to add space between the bullet and the text */
+  //     width: 1em; /* Also needed for space (tweak if needed) */
+  //     margin-left: -1em; /* Also needed for space (tweak if needed) */
+  //   }
+  //
+  // }
 
-    padding-right: 40px;
-    // продублируем, вдруг захотим в отдельный компонент вынести
-    h3 {
-      font-size: 15px;
-      line-height: 18px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-    h4 {
-      font-size: 15px;
-      line-height: 22px;
-      font-weight: 600;
-    }
-    p, ul {
-      font-size: 15px;
-      line-height: 22px;
-      font-weight: 500;
-      color: #303133;
-    }
-    p {
-      margin-bottom: 30px;
-    }
-    ul {
-      margin: 0;
-      padding-left: 15px;
-      list-style: none;
-      margin-bottom: 15px;
-    }
-    ul:last-of-type {
-      margin-bottom: 30px;
-    }
-    ul li::before {
-      content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-      color: #4066FF; /* Change the color */
-      font-weight: bold; /* If you want it to be bold */
-      display: inline-block; /* Needed to add space between the bullet and the text */
-      width: 1em; /* Also needed for space (tweak if needed) */
-      margin-left: -1em; /* Also needed for space (tweak if needed) */
-    }
-
-  }
-
-  .project-member {
-    // height: 500px;
-    font-size: 15px;
-    line-height: 18px;
-    letter-spacing: 0.055em;
-    font-weight: 500;
-
-    background-color: #ffffff;
-    margin-bottom: 30px;
-    padding-top: 30px;
-    padding-bottom: 38px;
-    text-align: center;
-    h2 {
-      margin-bottom: 20px;
-      font-size: 15px;
-      line-height: 18px;
-      /* identical to box height */
-      letter-spacing: 0.055em;
-      color: #606266;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .project-member__photo {
-      width: 106px;
-      height: 106px;
-      background-color: #ffffff;
-      overflow: hidden;
-      border-radius: 50%;
-      margin: 0 auto 19px auto;
-      // для изображения
-      display: flex;
-      flex-direction: column;
-      justify-content: center;  /* Centering y-axis */
-      align-items :center; /* Centering x-axis */
-    }
-
-    .project-member__fio {
-      margin-bottom: 15.5px;
-    }
-
-    .project-member__decor {
-      height: 1px;
-      width: 60%;
-      margin: 0 auto;
-      background-color: #E4E7ED;
-      margin-bottom: 15.5px;
-    }
-    p {
-      margin-bottom: 10px;
-      b {
-        font-weight: 600;
-      }
-    }
-    a {
-      font-weight: 600;
-      color: #0486FE;
-      text-decoration: underline;
-    }
-  }
+  // .project-member {
+  //   // height: 500px;
+  //   font-size: 15px;
+  //   line-height: 18px;
+  //   letter-spacing: 0.055em;
+  //   font-weight: 500;
+  //
+  //   background-color: #ffffff;
+  //   margin-bottom: 30px;
+  //   padding-top: 30px;
+  //   padding-bottom: 38px;
+  //   text-align: center;
+  //   h2 {
+  //     margin-bottom: 20px;
+  //     font-size: 15px;
+  //     line-height: 18px;
+  //     /* identical to box height */
+  //     letter-spacing: 0.055em;
+  //     color: #606266;
+  //     font-weight: 600;
+  //     text-transform: uppercase;
+  //   }
+  //
+  //   .project-member__photo {
+  //     width: 106px;
+  //     height: 106px;
+  //     background-color: #ffffff;
+  //     overflow: hidden;
+  //     border-radius: 50%;
+  //     margin: 0 auto 19px auto;
+  //     // для изображения
+  //     display: flex;
+  //     flex-direction: column;
+  //     justify-content: center;  /* Centering y-axis */
+  //     align-items :center; /* Centering x-axis */
+  //   }
+  //
+  //   .project-member__fio {
+  //     margin-bottom: 15.5px;
+  //   }
+  //
+  //   .project-member__decor {
+  //     height: 1px;
+  //     width: 60%;
+  //     margin: 0 auto;
+  //     background-color: #E4E7ED;
+  //     margin-bottom: 15.5px;
+  //   }
+  //   p {
+  //     margin-bottom: 10px;
+  //     b {
+  //       font-weight: 600;
+  //     }
+  //   }
+  //   a {
+  //     font-weight: 600;
+  //     color: #0486FE;
+  //     text-decoration: underline;
+  //   }
+  // }
 
   @media (min-width: 1494px) { // 1440px - ширина фона + 54px - ширина sidebar
     .project-view {

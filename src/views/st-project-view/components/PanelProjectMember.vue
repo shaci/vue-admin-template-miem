@@ -3,7 +3,7 @@
     <template v-if="projectData.status != 'consultant'">
       <h2>{{projectData.status_text}}</h2>
       <div class="project-member__photo">
-          <img src="@/assets/views/st-project-view/components/project-member/users/9/user9.jpg" :src="require(`@/assets/views/st-project-view/components/project-member/users/${projectData.image}`)"/>
+          <img :src="require(`@/assets/views_images/st-project-view/components/project-member/users/${projectData.image}`)"/>
           <!-- https://github.com/vuejs/Discussion/issues/202#issuecomment-355938213 -->
       </div>
       <p class="project-member__fio">
