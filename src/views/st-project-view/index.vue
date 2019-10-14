@@ -116,6 +116,16 @@
         <job-opening :project-data="project" />
       </el-col>
     </el-row>
+    <el-row>
+      <template v-for="(value, index) in filteredMembers">
+        <el-col v-if="index % 2" :span="10" :xs="10" :sm="10" :lg="10">
+          <panel-project-member :project-data="value" />
+        </el-col>
+        <el-col v-else :offset="2" :span="10" :xs="10" :sm="10" :lg="10">
+          <panel-project-member :project-data="value" />
+        </el-col>
+      </template>
+    </el-row>
   </div>
 </template>
 
@@ -143,6 +153,7 @@ export default {
     }
   },
   created() {
+    this.filteredMembers = []
     this.fetchData()
   },
   methods: {
@@ -151,8 +162,20 @@ export default {
       getProjectData().then(response => {
         this.project = response.data
         this.listLoading = false
-        console.log(this.project)
+
+        this.filterProjectMembers(response.data.project_members)
+        // console.log(this.project)
       })
+    },
+    filterProjectMembers(project_members) {
+      const statuses = ['direction_head', 'project_head', 'consultant']
+      this.filteredMembers = project_members.filter( ($) => {
+        if (statuses.indexOf($.status) === -1) {
+          return true
+        }
+        return false
+      })
+      console.log(this.filteredMembers)
     }
   }
 }

@@ -1,34 +1,39 @@
 <template>
-  <article class="project-member" :class="{'project-member--consultant' : projectData.status == 'consultant'}">
-    <template v-if="projectData.status != 'consultant'">
-      <h2>{{projectData.status_text}}</h2>
-      <div class="project-member__photo">
-          <img :src="require(`@/assets/views_images/st-project-view/components/project-member/users/${projectData.image}`)"/>
-          <!-- https://github.com/vuejs/Discussion/issues/202#issuecomment-355938213 -->
-      </div>
-      <p class="project-member__fio">
-        {{projectData.last_name}} {{projectData.first_name}} {{projectData.middle_name}},<br> {{projectData.position}}
-      </p>
-      <div class="project-member__decor"></div>
-      <p>
-        <b>Телефон:</b><br>
-        <template v-for="(value, index) in projectData.phone">
-          {{value}}<br v-if="index != projectData.phone.length - 1">
-        </template>
-      </p>
-      <p>
-        <b>Электронная почта:</b><br>
-        <template v-for="(value, index) in projectData.email">
-          {{value}}<br v-if="index != projectData.phone.length - 1">
-        </template>
-      </p>
-      <a :href="projectData.hse_link">Профиль на сайте ВШЭ</a>
-    </template>
-    <template v-else>
-      <b>{{projectData.status_text}}</b><br>
+  <div>
+    <article class="project-member" v-if="!densePanel" :class="{'project-member--consultant' : projectData.status == 'consultant'}">
+      <template v-if="projectData.status != 'consultant'">
+        <h2>{{projectData.status_text}}</h2>
+        <div class="project-member__photo">
+            <img :src="require(`@/assets/views_images/st-project-view/components/project-member/users/${projectData.image}`)"/>
+            <!-- https://github.com/vuejs/Discussion/issues/202#issuecomment-355938213 -->
+        </div>
+        <p class="project-member__fio">
+          {{projectData.last_name}} {{projectData.first_name}} {{projectData.middle_name}},<br> {{projectData.position}}
+        </p>
+        <div class="project-member__decor"></div>
+        <p>
+          <b>Телефон:</b><br>
+          <template v-for="(value, index) in projectData.phone">
+            {{value}}<br v-if="index != projectData.phone.length - 1">
+          </template>
+        </p>
+        <p>
+          <b>Электронная почта:</b><br>
+          <template v-for="(value, index) in projectData.email">
+            {{value}}<br v-if="index != projectData.phone.length - 1">
+          </template>
+        </p>
+        <a :href="projectData.hse_link">Профиль на сайте ВШЭ</a>
+      </template>
+      <template v-else>
+        <b>{{projectData.status_text}}</b><br>
+        <p>{{projectData.last_name}} {{projectData.first_name}} {{projectData.middle_name}}</p>
+      </template>
+    </article>
+    <article class="project-member-dense" v-if="densePanel">
       <p>{{projectData.last_name}} {{projectData.first_name}} {{projectData.middle_name}}</p>
-    </template>
-  </article>
+    </article>
+</div>
 </template>
 
 <script>
@@ -38,12 +43,20 @@ export default {
   props: {
     projectData: {
       type: Object
+    },
+    densePanel: {
+      type: Boolean,
+      default: false
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.project-member-dense {
+
+}
+
 .project-member {
   // height: 500px;
   font-size: 15px;
@@ -78,7 +91,7 @@ export default {
   .project-member__photo {
     width: 106px;
     height: 106px;
-    background-color: #ffffff;
+    background-color: #E2DDDD;//#ffffff;
     overflow: hidden;
     border-radius: 50%;
     margin: 0 auto 19px auto;
