@@ -63,6 +63,8 @@ export default {
   overflow: auto;
   pre {
     margin: 0;
+    white-space: pre-wrap;
+    // word-wrap: break-word;
   }
   h3 {
     font-size: 15px;
