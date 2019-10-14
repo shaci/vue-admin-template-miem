@@ -123,12 +123,12 @@
         </h3>
       </el-col>
     </el-row>
-    <el-row>
+    <el-row type="flex">
       <template v-for="(value, index) in filteredMembers">
-        <el-col v-if="index % 2" :span="10" :xs="10" :sm="10" :lg="10">
+        <el-col class="project-view__members-cell" v-if="index % 2" :span="10" :xs="10" :sm="10" :lg="10">
           <panel-project-member dense-panel :project-data="value" />
         </el-col>
-        <el-col v-else :offset="2" :span="10" :xs="10" :sm="10" :lg="10">
+        <el-col class="project-view__members-cell" v-else :offset="2" :span="10" :xs="10" :sm="10" :lg="10">
           <panel-project-member dense-panel :project-data="value" />
         </el-col>
       </template>
@@ -241,6 +241,9 @@ export default {
     }
     .project-view__members {
       margin-bottom: 20px;
+    }
+    .project-view__members-cell {
+      display: flex;
     }
   }
 

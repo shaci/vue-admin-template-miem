@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="project-member-wrapper" :class="{'project-member-wrapper--flex' : densePanel}">
     <article class="project-member" v-if="!densePanel" :class="{'project-member--consultant' : projectData.status == 'consultant'}">
       <template v-if="projectData.status != 'consultant'">
         <h2>{{projectData.status_text}}</h2>
@@ -76,7 +76,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.project-member-wrapper {
+  width: 100%;
+  &.project-member-wrapper--flex {
+    display: flex;
+  }
+}
 .project-member-dense {
+  width: 100%;
   display: flex;
   padding: 20px;
   background-color: #ffffff;
