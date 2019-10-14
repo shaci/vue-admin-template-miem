@@ -31,7 +31,30 @@
       </template>
     </article>
     <article class="project-member-dense" v-if="densePanel">
-      <p>{{projectData.last_name}} {{projectData.first_name}} {{projectData.middle_name}}</p>
+      <div class="project-member-dense__general">
+        <div class="project-member-dense__photo">
+          <img :src="require(`@/assets/views_images/st-project-view/components/project-member/users/${projectData.image}`)"/>
+        </div>
+        <p class="project-member-dense__fio">{{projectData.last_name}} {{projectData.first_name}}</p>
+        <p class="lighter">
+          {{projectData.status_text}}<br>
+          {{projectData.group}}
+        </p>
+      </div>
+      <div class="project-member-dense__contacts">
+        <p class="project-member-dense__phone">
+          <b>Телефон:</b><br>
+          <template v-for="(value, index) in projectData.phone">
+            {{value}}<br v-if="index != projectData.phone.length - 1">
+          </template>
+        </p>
+        <p>
+          <b>Электронная почта:</b><br>
+          <template v-for="(value, index) in projectData.email">
+            {{value}}<br v-if="index != projectData.phone.length - 1">
+          </template>
+        </p>
+      </div>
     </article>
 </div>
 </template>
@@ -54,7 +77,50 @@ export default {
 
 <style lang="scss" scoped>
 .project-member-dense {
-
+  display: flex;
+  padding: 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #DFE0EB;
+  border-right: 1px solid #DFE0EB;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.055em;
+  font-weight: 500;
+  b {
+    font-weight: 600;
+  }
+  .lighter {
+    color: #797F93;
+  }
+  div {
+    width: 50%;
+    position: relative;
+  }
+  .project-member-dense__general {
+    padding-left: 100px;
+    min-height: 80px;
+  }
+  .project-member-dense__phone {
+    margin-bottom:5px;
+  }
+  .project-member-dense__photo {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 0px;
+    top: 0px;
+    background-color: #E2DDDD;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Centering y-axis */
+    align-items :center; /* Centering x-axis */
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  .project-member-dense__fio {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
 }
 
 .project-member {
