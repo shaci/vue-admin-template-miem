@@ -79,7 +79,7 @@ export default {
       min-width: 900px;
       background: #FFFFFF;
       border: 1px solid #DFE0EB;
-      box-sizing: border-box;
+      // box-sizing: border-box;
       border-radius: 4px;
 
       table {
