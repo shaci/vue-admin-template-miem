@@ -116,20 +116,21 @@ export default {
   ul {
     margin: 0;
     padding-left: 15px;
-    list-style: none;
+    // list-style: none;
     margin-bottom: 15px;
+    // list-style-position: outside;
   }
   ul:last-of-type {
     margin-bottom: 30px;
   }
-  ul li::before {
-    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color: #4066FF; /* Change the color */
-    font-weight: bold; /* If you want it to be bold */
-    display: inline-block; /* Needed to add space between the bullet and the text */
-    width: 1em; /* Also needed for space (tweak if needed) */
-    margin-left: -1em; /* Also needed for space (tweak if needed) */
-  }
+  // ul li::before {
+  //   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  //   color: #4066FF; /* Change the color */
+  //   font-weight: bold; /* If you want it to be bold */
+  //   display: inline-block; /* Needed to add space between the bullet and the text */
+  //   width: 1em; /* Also needed for space (tweak if needed) */
+  //   margin-left: -1em; /* Also needed for space (tweak if needed) */
+  // }
 
 }
 </style>
