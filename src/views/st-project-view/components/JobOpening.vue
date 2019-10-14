@@ -2,12 +2,13 @@
   <div class="job-opening">
     <h3>Свободные вакансии в проекте</h3>
     <el-table class="job-opening__table"
-      :data="projectData.job_openings"
-      style="width: 100%;">
+      :data="projectData.job_openings">
       <el-table-column
         prop="role"
         label="Роль"
-        :min-width="11">
+        :min-width="11"
+        width="180"
+        >
       </el-table-column>
       <el-table-column
         prop="amount"
@@ -59,6 +60,7 @@ export default {
 
 <style lang="scss">
 .job-opening {
+  overflow: auto;
   pre {
     margin: 0;
   }
@@ -68,8 +70,11 @@ export default {
     /* identical to box height */
     font-weight: 600;
     color: #303133;
+    margin-bottom: 20px;
   }
   .job-opening__table {
+      width: 100%;
+      min-width: 900px;
       background: #FFFFFF;
       border: 1px solid #DFE0EB;
       box-sizing: border-box;
@@ -93,13 +98,15 @@ export default {
           padding-bottom: 15px;
           border-bottom: 1px solid #E4E7ED;
         }
-        button {
-          margin-left: 76px;
-        }
+
       }
 
       table th:first-child, table td:first-child {
         padding-left: 62px;
+      }
+
+      table td:last-child {
+        text-align: center;
       }
 
     // table {
