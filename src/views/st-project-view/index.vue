@@ -123,8 +123,18 @@
         </h3>
       </el-col>
     </el-row>
-    <el-row type="flex">
+    <!-- <el-row type="flex">
       <template v-for="(value, index) in filteredMembers">
+        <el-col class="project-view__members-cell" v-if="index % 2" :span="10" :xs="10" :sm="10" :lg="10">
+          <panel-project-member dense-panel :project-data="value" />
+        </el-col>
+        <el-col class="project-view__members-cell" v-else :offset="2" :span="10" :xs="10" :sm="10" :lg="10">
+          <panel-project-member dense-panel :project-data="value" />
+        </el-col>
+      </template>
+    </el-row> -->
+    <el-row type="flex" v-for="(value, index) in filteredMembersMultiple">
+      <template v-for="(value, index) in value">
         <el-col class="project-view__members-cell" v-if="index % 2" :span="10" :xs="10" :sm="10" :lg="10">
           <panel-project-member dense-panel :project-data="value" />
         </el-col>
@@ -161,6 +171,7 @@ export default {
   },
   created() {
     this.filteredMembers = []
+    this.filteredMembersMultiple = []
     this.fetchData()
   },
   methods: {
@@ -182,7 +193,20 @@ export default {
         }
         return false
       })
+      let tmpArray = []
+      this.filteredMembers.forEach((value, index) => {
+        tmpArray.push(value)
+        if ((index % 2) || (index === this.filteredMembers.length - 1)) {
+          this.filteredMembersMultiple.push(tmpArray)
+          tmpArray = []
+        }
+        // console.log(">>>>>>>>>")
+        // console.log(value)
+        // console.log(index)
+        // console.log(">>>>>>>>>")
+      })
       console.log(this.filteredMembers)
+      console.log(this.filteredMembersMultiple)
     }
   }
 }
