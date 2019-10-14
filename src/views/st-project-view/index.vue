@@ -111,6 +111,11 @@
         </h2>
       </el-col>
     </el-row>
+    <el-row>
+      <el-col :offset="2" :span="20" :xs="20" :sm="20" :lg="20">
+        <job-opening :project-data="project" />
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -120,13 +125,16 @@ import { mapGetters } from 'vuex'
 import PanelProjectMember from './components/PanelProjectMember'
 import PanelGeneralInformation from './components/PanelGeneralInformation'
 
+import JobOpening from './components/JobOpening'
+
 import { getProjectData } from '@/api/project'
 
 export default {
   name: 'ProjectView',
   components: {
     PanelProjectMember,
-    PanelGeneralInformation
+    PanelGeneralInformation,
+    JobOpening
   },
   data() {
     return {
