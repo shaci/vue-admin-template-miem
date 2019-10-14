@@ -1,35 +1,38 @@
 <template>
   <div class="job-opening">
     <h3>Свободные вакансии в проекте</h3>
-    <el-table
+    <el-table class="job-opening__table"
       :data="projectData.job_openings"
-      style="width: 100%">
+      style="width: 100%;">
       <el-table-column
         prop="role"
         label="Роль"
-        width="180">
+        :min-width="11">
       </el-table-column>
       <el-table-column
         prop="amount"
         label="Кол-во"
-        width="180">
+        :min-width="11">
       </el-table-column>
-      <el-table-column label="Изученные предварительно ключевые дисциплины">
+      <el-table-column
+        label="Изученные предварительно ключевые дисциплины"
+        :min-width="28">
         <template slot-scope="scope">
           <pre>{{ scope.row.prev_disciplines.map( ($) => { return `- ${$}`}).join("\n") }}</pre>
         </template>
       </el-table-column>
       <el-table-column
-        label="Необходимые дополнительно для выполнения проекты дисциплины">
+        label="Необходимые дополнительно для выполнения проекты дисциплины"
+        :min-width="33">
         <template slot-scope="scope">
           <pre>{{ scope.row.disciplines.map( ($) => { return `- ${$}`}).join("\n") }}</pre>
         </template>
       </el-table-column>
       <el-table-column
-        label="">
+        label=""
+        :min-width="17">
         <template slot-scope="scope">
-          <el-button
-            size="mini"
+          <el-button type="primary"
             @click="handleAssign(scope.$index, scope.row)">Записаться</el-button>
         </template>
       </el-table-column>
@@ -54,8 +57,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .job-opening {
+  pre {
+    margin: 0;
+  }
   h3 {
     font-size: 15px;
     line-height: 18px;
@@ -63,5 +69,46 @@ export default {
     font-weight: 600;
     color: #303133;
   }
+  .job-opening__table {
+      background: #FFFFFF;
+      border: 1px solid #DFE0EB;
+      box-sizing: border-box;
+      border-radius: 4px;
+
+      table {
+        font-size: 15px;
+        line-height: 18px;
+        /* identical to box height */
+        th {
+          font-weight: 600;
+          color: #606266;
+          padding-top: 30px;
+          padding-bottom: 30px; // на макете 9px
+          border-bottom: 1px solid #E4E7ED;
+        }
+        td {
+          font-weight: 500;
+          color: #303133;
+          padding-top: 21px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid #E4E7ED;
+        }
+        button {
+          margin-left: 76px;
+        }
+      }
+
+      table th:first-child, table td:first-child {
+        padding-left: 62px;
+      }
+
+    // table {
+    //   background: #FFFFFF;
+    //   border: 1px solid #DFE0EB;
+    //   box-sizing: border-box;
+    //   border-radius: 4px;
+    // }
+  }
+
 }
 </style>
