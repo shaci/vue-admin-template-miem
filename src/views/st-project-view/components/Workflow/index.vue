@@ -165,11 +165,14 @@ export default {
     color: #303133;
     font-weight: 500;
   }
+  .workflow__column__text {
+    margin-bottom: 6px;
+  }
   .workflow__column__user {
     width: 100%;
   }
   .workflow__column__time {
-    margin-top: 6px;
+    margin-top: auto;//6px;
     font-size: 12px;
     line-height: 14px;
     font-weight: 600;
