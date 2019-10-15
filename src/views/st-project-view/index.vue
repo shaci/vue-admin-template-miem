@@ -94,7 +94,7 @@
         </article>
       </el-col>
     </el-row> -->
-    <el-row class="project-view__description">
+    <el-row class="project-view__row">
       <el-col :offset="2" :span="14" :xs="14" :sm="14" :lg="14">
         <panel-general-information :project-data="project" />
       </el-col>
@@ -111,12 +111,12 @@
         </h2>
       </el-col>
     </el-row>
-    <el-row class="project-view__job-opening">
+    <el-row class="project-view__row">
       <el-col :offset="2" :span="20" :xs="20" :sm="20" :lg="20">
         <job-opening :project-data="project" />
       </el-col>
     </el-row>
-    <el-row class="project-view__members">
+    <el-row class="project-view__header">
       <el-col :offset="2" :span="13" :xs="13" :sm="13" :lg="13">
         <h3>
           Студенты, записанные в проект
@@ -133,7 +133,7 @@
         </el-col>
       </template>
     </el-row> -->
-    <el-row type="flex" v-for="(value, index) in filteredMembersMultiple">
+    <el-row class="project-view__members-row" type="flex" v-for="(value, index) in filteredMembersMultiple" :class="{'project-view__row' : index == filteredMembersMultiple.length - 1}">
       <template v-for="(value, index) in value">
         <el-col class="project-view__members-cell" v-if="index % 2" :span="10" :xs="10" :sm="10" :lg="10">
           <panel-project-member dense-panel :project-data="value" />
@@ -143,6 +143,18 @@
         </el-col>
       </template>
     </el-row>
+    <el-row class="project-view__header">
+      <el-col :offset="2" :span="13" :xs="13" :sm="13" :lg="13">
+        <h3>
+          Рабочий процесс
+        </h3>
+      </el-col>
+    </el-row>
+    <el-row class="project-view__row">
+      <el-col :offset="2" :span="20" :xs="20" :sm="20" :lg="20">
+        <workflow />
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -151,8 +163,8 @@ import { mapGetters } from 'vuex'
 
 import PanelProjectMember from './components/PanelProjectMember'
 import PanelGeneralInformation from './components/PanelGeneralInformation'
-
 import JobOpening from './components/JobOpening'
+import Workflow from './components/Workflow'
 
 import { getProjectData } from '@/api/project'
 
@@ -161,7 +173,8 @@ export default {
   components: {
     PanelProjectMember,
     PanelGeneralInformation,
-    JobOpening
+    JobOpening,
+    Workflow
   },
   data() {
     return {
@@ -260,10 +273,13 @@ export default {
         }
       }
     }
-    .project-view__description, .project-view__job-opening {
+    .project-view__row
+    //.project-view__members-row:last-child // выбираем каждый элемент класса .project-view__members-row, который при этом
+    // является последним дочерним элементом своего родителя - https://basicweb.ru/css/css_sel_last-child.php
+    {
         margin-bottom: 45px;
     }
-    .project-view__members {
+    .project-view__header {
       margin-bottom: 20px;
     }
     .project-view__members-cell {
