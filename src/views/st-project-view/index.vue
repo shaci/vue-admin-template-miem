@@ -155,6 +155,35 @@
         <workflow :project-data="project" />
       </el-col>
     </el-row>
+    <el-row class="project-view__general-info project-view__general-info--statistic">
+      <el-col :offset="2" :span="13" :xs="13" :sm="13" :lg="13">
+        <h2>
+          Статистика
+        </h2>
+      </el-col>
+    </el-row>
+    <el-row class="project-view__row">
+      <template v-for="(value, index) in project.statistic">
+        <el-col v-if="index == 0" :offset="2" :span="3" :xs="3" :sm="3" :lg="3">
+          <statistic-item :number="value.number" :imageLink="value.imageLink" :text="value.text" />
+        </el-col>
+        <el-col v-else :offset="1" :span="3" :xs="3" :sm="3" :lg="3">
+          <statistic-item :number="value.number" :imageLink="value.imageLink" :text="value.text" />
+        </el-col>
+      </template>
+      <!-- <el-col :offset="2" :span="3" :xs="3" :sm="3" :lg="3">
+        Блок 1
+      </el-col>
+      <el-col :offset="1" :span="3" :xs="3" :sm="3" :lg="3">
+        Блок 1
+      </el-col>
+      <el-col :offset="1" :span="3" :xs="3" :sm="3" :lg="3">
+        Блок 1
+      </el-col>
+      <el-col :offset="1" :span="3" :xs="3" :sm="3" :lg="3">
+        Блок 1
+      </el-col> -->
+    </el-row>
   </div>
 </template>
 
@@ -165,6 +194,7 @@ import PanelProjectMember from './components/PanelProjectMember'
 import PanelGeneralInformation from './components/PanelGeneralInformation'
 import JobOpening from './components/JobOpening'
 import Workflow from './components/Workflow'
+import StatisticItem from './components/StatisticItem'
 
 import { getProjectData } from '@/api/project'
 
@@ -174,7 +204,8 @@ export default {
     PanelProjectMember,
     PanelGeneralInformation,
     JobOpening,
-    Workflow
+    Workflow,
+    StatisticItem
   },
   data() {
     return {
@@ -267,12 +298,13 @@ export default {
         padding-bottom: 12px;
         border-bottom: 1px solid #E4E7ED;
       }
-      &.project-view__general-info--inproject {
+      &.project-view__general-info--inproject, &.project-view__general-info--statistic {
         h2 {
           color: #303133;
         }
       }
     }
+
     .project-view__row
     //.project-view__members-row:last-child // выбираем каждый элемент класса .project-view__members-row, который при этом
     // является последним дочерним элементом своего родителя - https://basicweb.ru/css/css_sel_last-child.php
