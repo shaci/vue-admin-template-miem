@@ -152,7 +152,7 @@
     </el-row>
     <el-row class="project-view__row">
       <el-col :offset="2" :span="20" :xs="20" :sm="20" :lg="20">
-        <workflow />
+        <workflow :project-data="project" />
       </el-col>
     </el-row>
   </div>
