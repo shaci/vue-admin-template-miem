@@ -3,17 +3,28 @@
     <h3>Свободные вакансии в проекте</h3>
     <el-table class="job-opening__table"
       :data="projectData.job_openings">
-      <el-table-column
+      <!-- <el-table-column
         prop="role"
         label="Роль"
         :min-width="11"
         width="180"
         >
-      </el-table-column>
-      <el-table-column
+      </el-table-column> -->
+      <!-- <el-table-column
         prop="amount"
         label="Кол-во"
-        :min-width="11">
+        :min-width="11"> -->
+        <el-table-column
+          prop="role"
+          label="Роль"
+          :min-width="11"
+          width="200"
+          >
+        </el-table-column>
+        <el-table-column
+          prop="amount"
+          label="Кол-во"
+          :min-width="6">
       </el-table-column>
       <el-table-column
         label="Изученные предварительно ключевые дисциплины"
@@ -64,6 +75,7 @@ export default {
   pre {
     margin: 0;
     white-space: pre-wrap;
+
     // word-wrap: break-word;
   }
   h3 {
@@ -104,7 +116,7 @@ export default {
       }
 
       table th:first-child, table td:first-child {
-        padding-left: 62px;
+        padding-left: 20px;//62px;
       }
 
       table td:last-child {
